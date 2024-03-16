@@ -1,0 +1,3 @@
+export ENVIRONMENT=test
+
+pytest
