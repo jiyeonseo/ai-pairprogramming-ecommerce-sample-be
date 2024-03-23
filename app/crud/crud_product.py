@@ -5,6 +5,10 @@ def get(db: Session, product_id: int):
     return db.query(models.Product).filter(models.Product.id == product_id).first()
     # select * from products where id = product_id
 
+def get_multi(db: Session, skip: int = 0, limit: int = 10):
+    return db.query(models.Product).offset(skip).limit(limit).all()
+    # select * from products limit limit offset skip
+
 def create(db: Session, obj_in):
     db_product = models.Product(**obj_in.dict())
     db.add(db_product)
